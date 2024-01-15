@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keycode Keyboard</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #key-display {
+        padding: 20px;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      border: 1px solid black;
+    }
+
+    #code-display {
+    border: 1px solid black;
+      font-size: 1rem;
+      color: #555;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="key-display">Press any Keyboard key</div>
+  <div id="code-display">keycode will be displayed here</div>
+
+  <script>
+    const keyDisplay = document.getElementById('key-display');
+    const codeDisplay = document.getElementById('code-display');
+
+    document.addEventListener('keydown', (event) => {
+      const key = event.key;
+      const code = event.keyCode;
+
+      keyDisplay.textContent = `You Pressed: ${key}`;
+      codeDisplay.textContent = `${code}`;
+    });
+  </script>
+</body>
+</html>
