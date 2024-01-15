@@ -104,7 +104,7 @@
 
           cart.forEach(item => {
             const cartItem = document.createElement('li');
-            cartItem.innerHTML = `${item.product.name} - $${item.product.price} x 
+            cartItem.innerHTML = `${item.product.name} - $${item.product.price}
               <span>${item.quantity}</span> = $${item.totalPrice}`;
             cartItems.appendChild(cartItem);
 
