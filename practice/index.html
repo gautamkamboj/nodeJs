@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Leaderboard</h1>
+    <form onsubmit="addPlayer(event)">
+        <div>
+            <label for="fName">first Name</label>
+            <input type="text" id="fName" placeholder="first name">
+        </div>
+        <div>
+            <label for="score">score</label>
+            <input type="number" id="score" placeholder="score">
+        </div>
+        <button type="submit">submit</button>
+
+        <ul id="list">
+
+        </ul>
+        
+
+    </form>
+    
+
+<script>
+    
+PlayerList = [];
+
+function addPlayer(event){
+
+    event.preventDefault();
+    
+    const list = document.getElementById('list');
+
+    const name = document.getElementById('fName').value;
+    const score = document.getElementById('score').value;
+
+    const data = {
+        pName: name,
+        pScore: parseInt(score)
+    }
+
+    PlayerList.push(data);
+    
+    PlayerList.sort((p1,p2)=> parseInt(p2.pScore)-parseInt(p1.pScore));
+    
+    list.innerHTML = '';
+
+    for( let i=0; i<PlayerList.length; i++){
+        
+        const player = PlayerList[i];    
+
+        const li = document.createElement('li');
+        const element = document.createElement('span');
+        const incButton = document.createElement('button');
+        const decButton = document.createElement('button');
+
+        
+        element.innerHTML = player.pName + " "+ player.pScore;
+
+        li.append(element);
+        list.append(li);
+
+    }
+
+}
+
+
+</script>    
+</body>
+</html>
